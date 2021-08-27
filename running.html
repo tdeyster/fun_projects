@@ -3,13 +3,16 @@
     <link rel="icon" href="/fun_projects/favicon.ico" type="image/x-icon" />
     <script>
       function add(id1,id2,id3){
-        document.getElementById(id3).innerHTML = document.getElementById(id1)+document.getElementById(id2);
+        document.getElementById(id3).innerHTML = document.getElementById(id1).value+document.getElementById(id2).value;
       }
     </script>
   </head>
   <body>
-    <input type="text" id="first"></input> + <input type="text" id="second"></input> = <a id="result"></a>
-<br> <button onclick="add('first','second','result');"> sum </button>
+    <input type="text" id="first"></input> + <input type="text" id="second"></input> = <a id="result"></a> <button onclick="add('first','second','result');"> sum </button>
+<br>
+<br>
+<iframe src="https://www.google.com/maps/d/u/2/embed?mid=18tsghISTK9WOjYqDmI-UHgpZthieLF0_" width="640" height="480"></iframe>
+
 </body>
 </html>
   
