@@ -16,6 +16,6 @@ This is a landing page for the projects I've been working on
 ---
 
 
-<a href="https://tdeyster.github.io/fun_projects/run_where_you_want/Desert2Greenwood.html" target="_blank">MAP</a>
+<a href="https://tdeyster.github.io/fun_projects/Desert2Greenwood/Desert2Greenwood.html" target="_blank">MAP</a>
 
 ---
