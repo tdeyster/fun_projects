@@ -13,12 +13,11 @@ function initMap() {
   //  url: "http://drive.google.com/uc?id=15MGMLN9e5SwEtP8XLXFG-Sz41pd8bimZ#t=" + new Date().getTime(),
   //  map: map,
   //});
-  const runner = "https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png";
   new google.maps.Marker({
     position: { lat: 42.50918, lng: -71.5429};
     map,
     title: "Nice Job!",
-    icon: runner,
+    icon: "https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png",
   });
 }
 // [END maps_layer_kml]
