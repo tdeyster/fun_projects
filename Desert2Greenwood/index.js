@@ -13,7 +13,7 @@ function initMap() {
   //  url: "http://drive.google.com/uc?id=15MGMLN9e5SwEtP8XLXFG-Sz41pd8bimZ#t=" + new Date().getTime(),
   //  map: map,
   //});
-  new google.maps.Marker({
+  const runner = new google.maps.Marker({
     position: { lat: 42.50918, lng: -71.5429};
     map,
     title: "Nice Job!",
