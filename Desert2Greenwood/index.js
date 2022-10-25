@@ -14,7 +14,7 @@ function initMap() {
   //  map: map,
   //});
   const runner = new google.maps.Marker({
-    position: { lat: 42.50918, lng: -71.5429};
+    position: { lat: 42.50918, lng: -71.5429},
     map,
     title: "Nice Job!",
     icon: "https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png",
