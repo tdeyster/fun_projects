@@ -16,6 +16,66 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDGvIt63It1YhUmjLqwp6hDbFXKEsmEpc&callback=initMap&libraries=&v=weekly"
       async
     ></script>
+    <script>
+      const CLIENT_ID = 'tdeyster';
+      const API_KEY = 'AIzaSyDDGvIt63It1YhUmjLqwp6hDbFXKEsmEpc';
+
+      // Discovery doc URL for APIs used by the quickstart
+      const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
+
+      // Authorization scopes required by the API; multiple scopes can be
+      // included, separated by spaces.
+      const SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly';
+
+      let tokenClient;
+      let gapiInited = false;
+      let gisInited = false;
+
+      /**
+       * Callback after api.js is loaded.
+       */
+      function gapiLoaded() {
+        gapi.load('client', intializeGapiClient);
+      }
+
+      /**
+       * Callback after the API client is loaded. Loads the
+       * discovery doc to initialize the API.
+       */
+      async function intializeGapiClient() {
+        await gapi.client.init({
+          apiKey: API_KEY,
+          discoveryDocs: [DISCOVERY_DOC],
+        });
+        gapiInited = true;
+        getLatLon();
+      }
+      /**
+      * Callback to get lat lon from spreadsheet
+      */
+      async function getLatLon(){
+        let response;
+        try {
+          // Fetch lat lon cells
+          response = await gapi.client.sheets.spreadsheets.values.get({
+            spreadsheetId: '1uQfnFoeMdOFjT8k7WqEgEpQCuYv_Lc4KvyVZ9UDPW74',
+            range: 'inputs!K2:L2',
+          });
+        } catch (err) {
+          console.log(err.message);
+          return;
+        }
+        const range = response.result;
+        if (!range || !range.values || range.values.length == 0) {
+          console.log('No values found.');
+          return;
+        }
+        // display
+        console.log(range.values);
+        return;
+      }
+    </script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
   </body>
 </html>
 <!-- [END maps_layer_kml] -->
