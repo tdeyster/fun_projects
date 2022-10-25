@@ -9,9 +9,16 @@ function initMap() {
     url: "http://drive.google.com/uc?id=1fUTjKFWu1eLpdao2kXo7dc9NwdDP2HSg#t=" + new Date().getTime(),
     map: map,
   });
-  const ctaLayer1 = new google.maps.KmlLayer({
-    url: "http://drive.google.com/uc?id=15MGMLN9e5SwEtP8XLXFG-Sz41pd8bimZ#t=" + new Date().getTime(),
-    map: map,
+  //const ctaLayer1 = new google.maps.KmlLayer({
+  //  url: "http://drive.google.com/uc?id=15MGMLN9e5SwEtP8XLXFG-Sz41pd8bimZ#t=" + new Date().getTime(),
+  //  map: map,
+  //});
+  const runner = "https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png";
+  new google.maps.Marker({
+    position: { lat: 42.50918, lng: -71.5429};
+    map,
+    title: "Nice Job!",
+    icon: runner,
   });
 }
 // [END maps_layer_kml]
