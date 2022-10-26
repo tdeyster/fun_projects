@@ -71,14 +71,13 @@ var Googlemap;
 		return;
 		}
 		// display
-		var vals = range.values[0]
-		console.log(vals);
 		try{
-			var lonlat = [Number(vals[0]),Number(vals[1])];
+			var lonlat = [Number(range.values[0][0]),Number(range.values[0][1])];
 	  	}catch{
 	    		console.log("Using Defaut")
 	    		var lonlat = [-71.5429,42.50918];
 		}
+		console.log(lonlat);
 		const runner = new google.maps.Marker({
 			position: { lat: lonlat[1], lng: lonlat[0]},
 			map: Googlemap,
