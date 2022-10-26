@@ -74,23 +74,17 @@ var Googlemap;
 		var vals = range.values[0]
 		console.log(vals);
 		try{
-			Number(vals[0]),Number(vals[1]);
-			const runner = new google.maps.Marker({
-	    			position: { lat: lonlat[1], lng: lonlat[0]},
-	    			map: Googlemap,
-	    			title: "Nice Job!",
-	    			icon: "https://tdeyster.github.io/fun_projects/Desert2Greenwood/runner.png",//"https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png",
-	  		});
+			var lonlat = [Number(vals[0]),Number(vals[1])];
 	  	}catch{
 	    		console.log("Using Defaut")
-	    		lonlat = [-71.5429,42.50918];
-			const runner = new google.maps.Marker({
-	    			position: { lat: lonlat[1], lng: lonlat[0]},
-	    			map: Googlemap,
-	    			title: "Nice Job!",
-	    			icon: "https://tdeyster.github.io/fun_projects/Desert2Greenwood/runner.png",//"https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png",
-	  		});
-	  	}
+	    		var lonlat = [-71.5429,42.50918];
+		}
+		const runner = new google.maps.Marker({
+			position: { lat: lonlat[1], lng: lonlat[0]},
+			map: Googlemap,
+			title: "Nice Job!",
+			icon: "https://tdeyster.github.io/fun_projects/Desert2Greenwood/runner.png",//"https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png",
+		});
 	 
 	};
 //////////////////////////////////////////////////////////////////////////////////////
