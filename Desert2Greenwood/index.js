@@ -28,14 +28,17 @@ var runner=null;
       var CLIENT_ID = '170863147700-87ntidpbq1qc35eq7l1mp3m5nkro5fln.apps.googleusercontent.com';  // TODO: Update placeholder with desired client ID.
       var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
       gapi.client.init({
+	console.log("try1");
+	getLonLat(); //put runner on map
         'apiKey': API_KEY,
         'clientId': CLIENT_ID,
         'scope': SCOPE,
         'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
       }).then(function() {
-	getLonLat(); //put runner on map
-        //gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
-        //updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+      		console.log("try2");
+		getLonLat(); //put runner on map
+		//gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
+		//updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
       });
     }
     function handleClientLoad() {
