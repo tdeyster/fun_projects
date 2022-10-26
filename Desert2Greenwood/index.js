@@ -35,7 +35,7 @@ var runner=null;
       }).then(function() {
         gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
         updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-      });
+      }).then(initMap()); //added
     }
     function handleClientLoad() {
       gapi.load('client:auth2', initClient);
