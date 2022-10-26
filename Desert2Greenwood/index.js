@@ -40,18 +40,19 @@ var runner=null;
       var API_KEY = 'AIzaSyAeXPkIz1JIdgPkA7VtHCj7V1-wfYNK69Q';  // TODO: Update placeholder with desired API key.
       var CLIENT_ID = '170863147700-87ntidpbq1qc35eq7l1mp3m5nkro5fln.apps.googleusercontent.com';  // TODO: Update placeholder with desired client ID.
       var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
-      gapi.client.init({
+      gapi.client.init({//this throws error but afterwards things work
         'apiKey': API_KEY,
         'clientId': CLIENT_ID,
         'scope': SCOPE,
         'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
       }).then(function() {
-      		console.log("try2");
-		getLonLat(); //put runner on map
+	      	// never gets here
+	      	console.log("NO ERROR, try 1");
+	  	getLonLat(); //put runner on map
 		//gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
 		//updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
       }).catch(function() {
-	  console.log("ERROR, try 3");
+	  console.log("ERROR, try 2");
 	  getLonLat(); //put runner on map
       });
     }
@@ -114,6 +115,6 @@ function initMap() {
   //  url: "http://drive.google.com/uc?id=15MGMLN9e5SwEtP8XLXFG-Sz41pd8bimZ#t=" + new Date().getTime(),
   //  map: map,
   //});
-  getLonLat();
+  //getLonLat(); //cant call until after it's authorized
 }
 // [END maps_layer_kml]
