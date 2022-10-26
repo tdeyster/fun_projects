@@ -72,15 +72,6 @@ var runner=null;
 		return;
 		}
 		// display
-		if (runner==null){
-			var lonlat = [-71.5429,42.50918];
-			runner = new google.maps.Marker({
-				position: { lat: lonlat[1], lng: lonlat[0]},
-				map: Googlemap,
-				title: "Nice Job!",
-				icon: "https://tdeyster.github.io/fun_projects/Desert2Greenwood/runner.png",//"https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png",
-			});
-		}
 		try{
 			var lonlat = [Number(range.values[0][0]),Number(range.values[0][1])];
 	  	}catch{
@@ -88,8 +79,17 @@ var runner=null;
 	    		var lonlat = [-71.5429,42.50918];
 		}
 		console.log(lonlat);
-		runner.setPosition( new google.maps.LatLng(lonlat[1],lonlat[0]) );
-    		Googlemap.panTo( new google.maps.LatLng(lonlat[1],lonlat[0]) );
+		if (runner==null){
+			runner = new google.maps.Marker({
+				position: { lat: lonlat[1], lng: lonlat[0]},
+				map: Googlemap,
+				title: "Nice Job!",
+				icon: "https://tdeyster.github.io/fun_projects/Desert2Greenwood/runner.png",//"https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png",
+			});
+		}else{
+			runner.setPosition( new google.maps.LatLng(lonlat[1],lonlat[0]) );
+    			Googlemap.panTo( new google.maps.LatLng(lonlat[1],lonlat[0]) );
+		}
 	 
 	};
 //////////////////////////////////////////////////////////////////////////////////////
@@ -107,5 +107,6 @@ function initMap() {
   //  url: "http://drive.google.com/uc?id=15MGMLN9e5SwEtP8XLXFG-Sz41pd8bimZ#t=" + new Date().getTime(),
   //  map: map,
   //});
+  getLatLon();
 }
 // [END maps_layer_kml]
