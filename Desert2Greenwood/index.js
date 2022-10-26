@@ -51,7 +51,7 @@
     }
 ////////////////////////////////////////////////////////////
 // get lonlat
-	async function getLonLat(){
+	async function getLonLat(lonlat){
 		console.log("getting lonlat");
 		let response;
 		try {
@@ -70,8 +70,9 @@
 		return;
 		}
 		// display
-		console.log(range.values);
-    		return [Number(range.values[0][0]),Number(range.values[0][0])];
+		var vals = range.values[0]
+		console.log(vals);
+    		lonlat.push(Number(vals[0]),Number(vals[1]));
 	};
 //////////////////////////////////////////////////////////////////////////////////////
 // [START maps_layer_kml]
@@ -88,10 +89,11 @@ function initMap() {
   //  url: "http://drive.google.com/uc?id=15MGMLN9e5SwEtP8XLXFG-Sz41pd8bimZ#t=" + new Date().getTime(),
   //  map: map,
   //});
-  var lonlat = [-71.5429,42.50918];
-  try{lonlat = getLonLat()
+  var lonlat = [];
+  try{ getLonLat(lonlat)
   }catch{
     console.log("Using Defaut")
+    lonlat = [-71.5429,42.50918];
   }
   const runner = new google.maps.Marker({
     position: { lat: lonlat[1], lng: lonlat[0]},
