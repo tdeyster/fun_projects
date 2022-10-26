@@ -13,6 +13,7 @@
        https://developers.google.com/api-client-library/javascript/start/start-js#get-access-keys-for-your-application
     3. For additional information on authentication, see
        https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
+    4. If application is in "Testing mode" users must be added in Google Developer project
     -->
     <script>
     function makeApiCall() {
@@ -89,22 +90,22 @@
 		console.log("getting latlon");
 		let response;
 		try {
-          // Fetch lat lon cells
-          response = await gapi.client.sheets.spreadsheets.values.get({
-            spreadsheetId: '1uQfnFoeMdOFjT8k7WqEgEpQCuYv_Lc4KvyVZ9UDPW74',
-            range: 'inputs!K2:L2',
-          });
-        } catch (err) {
-          console.log(err.message);
-          return;
-        }
-        const range = response.result;
-        if (!range || !range.values || range.values.length == 0) {
-          console.log('No values found.');
-          return;
-        }
-        // display
-        console.log(range.values);
+		// Fetch lat lon cells
+		response = await gapi.client.sheets.spreadsheets.values.get({
+			spreadsheetId: '1uQfnFoeMdOFjT8k7WqEgEpQCuYv_Lc4KvyVZ9UDPW74',
+			range: 'K2:L2',
+		});
+		} catch (err) {
+			console.log(err.message);
+			return;
+		}
+		const range = response.result;
+		if (!range || !range.values || range.values.length == 0) {
+		console.log('No values found.');
+		return;
+		}
+		// display
+		console.log(range.values);
 	};
 	</script>
   </head>
