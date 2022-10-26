@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<script src="https://apis.google.com/js/api.js"></script>
+	<script>
+	function start() {
+	  // 2. Initialize the JavaScript client library.
+	  gapi.client.init({
+		'apiKey': 'key=AIzaSyDDGvIt63It1YhUmjLqwp6hDbFXKEsmEpc',
+		// clientId and scope are optional if auth is not required.
+		'clientId': 'tdeyster.apps.googleusercontent.com',
+		'scope': 'profile',
+	  }).then(function() {
+		// 3. Initialize and make the API request.
+		return gapi.client.request({
+		  'path': 'https://people.googleapis.com/v1/people/me?requestMask.includeField=person.names',
+		})
+	  }).then(function(response) {
+		console.log(response.result);
+	  }, function(reason) {
+		console.log('Error: ' + reason.result.error.message);
+	  });
+	};
+	// 1. Load the JavaScript client library.
+	gapi.load('client', start);
+	async function getLatLon(){
+		console.log("getting latlon");
+		let response;
+		try {
+          // Fetch lat lon cells
+          response = await gapi.client.sheets.spreadsheets.values.get({
+            spreadsheetId: '1uQfnFoeMdOFjT8k7WqEgEpQCuYv_Lc4KvyVZ9UDPW74',
+            range: 'inputs!K2:L2',
+          });
+        } catch (err) {
+          console.log(err.message);
+          return;
+        }
+        const range = response.result;
+        if (!range || !range.values || range.values.length == 0) {
+          console.log('No values found.');
+          return;
+        }
+        // display
+        console.log(range.values);
+	};
+	</script>
+  </head>
+  <body>
+  <button onclick="getLatLon()"> Get LatLon </button>
+  </body>
+</html>
