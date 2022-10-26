@@ -1,6 +1,7 @@
 var Googlemap;
 var runner=null;
 // Initialize google account
+    /*
     function makeApiCall() {
       var params = {
         // The spreadsheet to request.
@@ -22,7 +23,18 @@ var runner=null;
         console.error('error: ' + reason.result.error.message);
       });
     }
-
+    function updateSignInStatus(isSignedIn) {
+      if (isSignedIn) {
+        makeApiCall();
+      }
+    }
+    function handleSignInClick(event) {
+      gapi.auth2.getAuthInstance().signIn();
+    }
+    function handleSignOutClick(event) {
+      gapi.auth2.getAuthInstance().signOut();
+    }
+    */
     function initClient() {
 	// can't access spreadsheets yet
       var API_KEY = 'AIzaSyAeXPkIz1JIdgPkA7VtHCj7V1-wfYNK69Q';  // TODO: Update placeholder with desired API key.
@@ -38,23 +50,13 @@ var runner=null;
 		getLonLat(); //put runner on map
 		//gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
 		//updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+      }).catch(function() {
+	  console.log("ERROR, try 3");
+	  getLonLat(); //put runner on map
       });
-      console.log("try3");
-      getLonLat(); //put runner on map
     }
     function handleClientLoad() {
       gapi.load('client:auth2', initClient);
-    }
-    function updateSignInStatus(isSignedIn) {
-      if (isSignedIn) {
-        makeApiCall();
-      }
-    }
-    function handleSignInClick(event) {
-      gapi.auth2.getAuthInstance().signIn();
-    }
-    function handleSignOutClick(event) {
-      gapi.auth2.getAuthInstance().signOut();
     }
 ////////////////////////////////////////////////////////////
 // get lonlat
