@@ -24,8 +24,7 @@ var runner=null;
     }
 
     function initClient() {
-      console.log("try1");
-      getLonLat(); //put runner on map
+	// can't access spreadsheets yet
       var API_KEY = 'AIzaSyAeXPkIz1JIdgPkA7VtHCj7V1-wfYNK69Q';  // TODO: Update placeholder with desired API key.
       var CLIENT_ID = '170863147700-87ntidpbq1qc35eq7l1mp3m5nkro5fln.apps.googleusercontent.com';  // TODO: Update placeholder with desired client ID.
       var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
@@ -40,6 +39,8 @@ var runner=null;
 		//gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
 		//updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
       });
+      console.log("try3");
+      getLonLat(); //put runner on map
     }
     function handleClientLoad() {
       gapi.load('client:auth2', initClient);
