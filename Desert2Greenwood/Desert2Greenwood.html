@@ -7,50 +7,24 @@
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <link rel="icon" href="../coon_icon.png" />
     <script src="./index.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDGvIt63It1YhUmjLqwp6hDbFXKEsmEpc&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
   </head>
   <body>
     <div id="map" style="height:60%"></div>
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <!--<iframe id="gsheet" width="100%" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQt6vOkTLUPkqIkyF4_wWKbmcL3JUbayOKabsS8gp1Pu0CWjCYbuj5RnMxvypZ6ykPXdVu8jDrd1izQ/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=true"></iframe>
     -->
-    <iframe src="https://docs.google.com/spreadsheets/d/1uQfnFoeMdOFjT8k7WqEgEpQCuYv_Lc4KvyVZ9UDPW74/edit?usp=sharing&embedded=true&rm=minimal" width="100%" height="40%"></iframe>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDGvIt63It1YhUmjLqwp6hDbFXKEsmEpc&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
-    <script
-      src="https://apis.google.com/js/api.js?key=AIzaSyAeXPkIz1JIdgPkA7VtHCj7V1-wfYNK69Q&callback=getLatLon&libraries=&v=weekly"
-      // async
-    ></script>
-    <script>
-      /**
-      * Callback to get lat lon from spreadsheet
-      */
-      async function getLatLon(){
-        console.log("went to get latlon");
-        /**
-        let response;
-        try {
-          // Fetch lat lon cells
-          response = await gapi.client.sheets.spreadsheets.values.get({
-            spreadsheetId: '1uQfnFoeMdOFjT8k7WqEgEpQCuYv_Lc4KvyVZ9UDPW74',
-            range: 'inputs!K2:L2',
-          });
-        } catch (err) {
-          console.log(err.message);
-          return;
-        }
-        const range = response.result;
-        if (!range || !range.values || range.values.length == 0) {
-          console.log('No values found.');
-          return;
-        }
-        // display
-        console.log(range.values);
-        */
-        return;
-      }
-    </script>
+    <br><button id="signin-button" onclick="handleSignInClick()">Sign in</button>
+    <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
+    <button onclick="initMap()"> Refresh Map </button>
+    <br><iframe src="https://docs.google.com/spreadsheets/d/1uQfnFoeMdOFjT8k7WqEgEpQCuYv_Lc4KvyVZ9UDPW74/edit?usp=sharing&embedded=true&rm=minimal" width="100%" height="40%"></iframe>
   </body>
 </html>
 <!-- [END maps_layer_kml] -->
