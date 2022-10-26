@@ -72,7 +72,25 @@
 		// display
 		var vals = range.values[0]
 		console.log(vals);
-    		lonlat.push(Number(vals[0]),Number(vals[1]));
+		try{
+			Number(vals[0]),Number(vals[1]);
+			const runner = new google.maps.Marker({
+	    			position: { lat: lonlat[1], lng: lonlat[0]},
+	    			map,
+	    			title: "Nice Job!",
+	    			icon: "https://tdeyster.github.io/fun_projects/Desert2Greenwood/runner.png",//"https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png",
+	  		});
+	  	}catch{
+	    		console.log("Using Defaut")
+	    		lonlat = [-71.5429,42.50918];
+			const runner = new google.maps.Marker({
+	    			position: { lat: lonlat[1], lng: lonlat[0]},
+	    			map,
+	    			title: "Nice Job!",
+	    			icon: "https://tdeyster.github.io/fun_projects/Desert2Greenwood/runner.png",//"https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png",
+	  		});
+	  	}
+	 
 	};
 //////////////////////////////////////////////////////////////////////////////////////
 // [START maps_layer_kml]
@@ -89,17 +107,5 @@ function initMap() {
   //  url: "http://drive.google.com/uc?id=15MGMLN9e5SwEtP8XLXFG-Sz41pd8bimZ#t=" + new Date().getTime(),
   //  map: map,
   //});
-  var lonlat = [];
-  try{ getLonLat(lonlat)
-  }catch{
-    console.log("Using Defaut")
-    lonlat = [-71.5429,42.50918];
-  }
-  const runner = new google.maps.Marker({
-    position: { lat: lonlat[1], lng: lonlat[0]},
-    map,
-    title: "Nice Job!",
-    icon: "https://tdeyster.github.io/fun_projects/Desert2Greenwood/runner.png",//"https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png",
-  });
 }
 // [END maps_layer_kml]
