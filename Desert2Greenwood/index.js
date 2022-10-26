@@ -97,6 +97,7 @@ var runner=null;
 		}else{
 			runner.setPosition( new google.maps.LatLng(lonlat[1],lonlat[0]) );
     			Googlemap.panTo( new google.maps.LatLng(lonlat[1],lonlat[0]) );
+			Googlemap.setZoom(11);
 		}
 	 
 	};
