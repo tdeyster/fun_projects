@@ -1,4 +1,5 @@
 var Googlemap;
+var runner=null;
 // Initialize google account
     function makeApiCall() {
       var params = {
@@ -71,6 +72,15 @@ var Googlemap;
 		return;
 		}
 		// display
+		if (runner==null){
+			var lonlat = [-71.5429,42.50918];
+			runner = new google.maps.Marker({
+				position: { lat: lonlat[1], lng: lonlat[0]},
+				map: Googlemap,
+				title: "Nice Job!",
+				icon: "https://tdeyster.github.io/fun_projects/Desert2Greenwood/runner.png",//"https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png",
+			});
+		}
 		try{
 			var lonlat = [Number(range.values[0][0]),Number(range.values[0][1])];
 	  	}catch{
@@ -78,12 +88,8 @@ var Googlemap;
 	    		var lonlat = [-71.5429,42.50918];
 		}
 		console.log(lonlat);
-		const runner = new google.maps.Marker({
-			position: { lat: lonlat[1], lng: lonlat[0]},
-			map: Googlemap,
-			title: "Nice Job!",
-			icon: "https://tdeyster.github.io/fun_projects/Desert2Greenwood/runner.png",//"https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png",
-		});
+		runner.setPosition( new google.maps.LatLng(lonlat[1],lonlat[0]) );
+    		Googlemap.panTo( new google.maps.LatLng(lonlat[1],lonlat[0]) );
 	 
 	};
 //////////////////////////////////////////////////////////////////////////////////////
