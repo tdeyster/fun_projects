@@ -71,7 +71,7 @@
 		}
 		// display
 		console.log(range.values);
-    return range.values;
+    return range.values[0];
 	};
 //////////////////////////////////////////////////////////////////////////////////////
 // [START maps_layer_kml]
