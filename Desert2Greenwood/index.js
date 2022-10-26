@@ -52,7 +52,7 @@ var Googlemap;
     }
 ////////////////////////////////////////////////////////////
 // get lonlat
-	async function getLonLat(lonlat){
+	async function getLonLat(){
 		console.log("getting lonlat");
 		let response;
 		try {
