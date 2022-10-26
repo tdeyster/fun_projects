@@ -107,6 +107,6 @@ function initMap() {
   //  url: "http://drive.google.com/uc?id=15MGMLN9e5SwEtP8XLXFG-Sz41pd8bimZ#t=" + new Date().getTime(),
   //  map: map,
   //});
-  getLatLon();
+  getLonLat();
 }
 // [END maps_layer_kml]
