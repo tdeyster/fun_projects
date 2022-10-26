@@ -17,7 +17,7 @@ function initMap() {
     position: { lat: 42.50918, lng: -71.5429},
     map,
     title: "Nice Job!",
-    icon: "https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png",
+    icon: "https://tdeyster.github.io/fun_projects/Desert2Greenwood/runner.png",//"https://icons.iconarchive.com/icons/icons8/windows-8/48/Sports-Running-Man-icon.png",
   });
 }
 // [END maps_layer_kml]
