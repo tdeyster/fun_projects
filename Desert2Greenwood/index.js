@@ -33,9 +33,10 @@ var runner=null;
         'scope': SCOPE,
         'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
       }).then(function() {
+	 getLonLat(); //put runner on map
         gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
         updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-      }).then(initMap()); //added
+      });
     }
     function handleClientLoad() {
       gapi.load('client:auth2', initClient);
