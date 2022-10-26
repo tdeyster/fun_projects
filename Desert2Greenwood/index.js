@@ -49,9 +49,6 @@
     function handleSignOutClick(event) {
       gapi.auth2.getAuthInstance().signOut();
     }
-    <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
 ////////////////////////////////////////////////////////////
 // get lonlat
 	async function getLonLat(){
